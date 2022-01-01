@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\sp_Series_Insert.sql" />
+    <None Remove="Scripts\sp_Series_Totals.sql" />
+    <None Remove="Scripts\view_Member_Search.sql" />
+    <None Remove="Scripts\view_Race_Draw.sql" />
+    <None Remove="Scripts\view_Race_List.sql" />
+    <None Remove="Scripts\view_Race_List2.sql" />
+    <None Remove="Scripts\view_Race_Results.sql" />
+    <None Remove="Scripts\view_Race_Timing.sql" />
+    <None Remove="Scripts\view_Riders_History.sql" />
+    <None Remove="Scripts\view_Riders_List.sql" />
+    <None Remove="Scripts\view_Riders_Results.sql" />
+    <None Remove="Scripts\view_Rider_Classes.sql" />
+    <None Remove="Scripts\view_Series_Names.sql" />
+    <None Remove="Scripts\view_Series_Results.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\sp_Series_Totals.sql" />
+    <EmbeddedResource Include="Scripts\view_Race_Timing.sql" />
+    <EmbeddedResource Include="Scripts\sp_Series_Insert.sql" />
+    <EmbeddedResource Include="Scripts\view_Series_Results.sql" />
+    <EmbeddedResource Include="Scripts\view_Series_Names.sql" />
+    <EmbeddedResource Include="Scripts\view_Riders_Results.sql" />
+    <EmbeddedResource Include="Scripts\view_Rider_Classes.sql" />
+    <EmbeddedResource Include="Scripts\view_Riders_History.sql" />
+    <EmbeddedResource Include="Scripts\view_Member_Search.sql" />
+    <EmbeddedResource Include="Scripts\view_Race_List.sql" />
+    <EmbeddedResource Include="Scripts\view_Race_List2.sql" />
+    <EmbeddedResource Include="Scripts\view_Race_Draw.sql" />
+    <EmbeddedResource Include="Scripts\view_Race_Results.sql" />
+    <EmbeddedResource Include="Scripts\view_Riders_List.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="FluentMigrator" Version="3.2.11" />
+    <PackageReference Include="FluentMigrator.Abstractions" Version="3.2.11" />
+    <PackageReference Include="FluentMigrator.Runner" Version="3.2.11" />
+	 <PackageReference Include="FluentMigrator.Runner.Core" Version="3.2.11" />
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+  </ItemGroup>
+
+
+</Project>
