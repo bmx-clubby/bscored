@@ -157,6 +157,9 @@
     <Compile Include="..\bScored.Events\DatabaseConnection.cs">
       <Link>DatabaseConnection.cs</Link>
     </Compile>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="CSVImport.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.329
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bScored.Database", "bScored.Database\bScored.Database.csproj", "{59E462A9-6B86-43FF-8B6F-8E191125604C}"
 EndProject
@@ -18,6 +18,11 @@ EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "bScored.Installer", "bScored.Installer\Setup1.vdproj", "{D3850D8F-8729-429A-9BD8-73FED0C309D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bScored.Installer.CustomActions", "bScored.Installer.CustomActions\bScored.Installer.CustomActions.csproj", "{0A7C50BF-86B2-4E53-B61A-8C79C4B56BEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Global", "Global", "{84E4A09F-F329-437E-8501-EC54DCAC5379}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionInfo.cs = SolutionInfo.cs
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

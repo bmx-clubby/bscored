@@ -173,6 +173,9 @@
     <Compile Include="..\bScored.Events\DatabaseConnection.cs">
       <Link>DatabaseConnection.cs</Link>
     </Compile>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="Database\MigratorTest.cs" />
     <Compile Include="Installer.CustomActions\bScoredInstallerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
