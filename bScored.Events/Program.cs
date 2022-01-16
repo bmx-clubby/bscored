@@ -1,9 +1,12 @@
 ﻿using bScored;
 using bScoredDatabase;
+using Sentry;
 using System;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
@@ -20,6 +23,30 @@ namespace WindowsFormsApp7
 
 		[STAThread]
 		static int Main()
+		{
+			using (SentrySdk.Init(o =>
+			{
+				o.Dsn = "https://bad7cc7aa2b948e7848fcbed7cca19fb@o1017083.ingest.sentry.io/6133229";
+				// When configuring for the first time, to see what the SDK is doing:
+				o.Debug = true;
+				// Set traces_sample_rate to 1.0 to capture 100% of transactions for performance monitoring.
+				// We recommend adjusting this value in production.
+				o.TracesSampleRate = 1.0;
+
+			}))
+			{
+				SentrySdk.ConfigureScope(scope =>
+				{
+					scope.User = new User
+					{
+						Username = Environment.UserName,
+					};
+				});
+				return SentryWrappedMain();
+			}
+		}
+
+		static int SentryWrappedMain()
 		{
 			AppDomain.CurrentDomain.SetData("DataDirectory",
 					Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bScored"));
@@ -73,31 +100,33 @@ namespace WindowsFormsApp7
 			catch (Exception ex)
 			{
 				MessageBox.Show($"An application error has occurred. \n\nDetails: {ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+				SentrySdk.CaptureException(ex);
 				return -1;
 			}
-			/* Retreive User settings for Initial Catalog and update connect string if required 
-             Config file is ready only at runtime so this doesnt work always ...*/
-			/*  if (File.Exists(@"C:\BMX\InitialCatalog.txt"))
-                {
-                    string settingInitialCatalog = File.ReadAllText(@"C:\BMX\InitialCatalog.txt");
-                    string connString = ConfigurationManager.ConnectionStrings["bscored"].ConnectionString;
-                    if (!connString.Contains(settingInitialCatalog))
-                    {
-                        var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                        var connectionStringSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
-                        connectionStringSection.ConnectionStrings["bscored"].ConnectionString = @"Data Source = .\SQLEXPRESS; Initial Catalog = " + settingInitialCatalog + "; Integrated Security = True";
-                        config.Save();
-                        ConfigurationManager.RefreshSection("connectionStrings");
 
-                        MessageBox.Show(ConfigurationManager.ConnectionStrings["bscored"].ConnectionString, "Initial Catalog Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            */
+			Application.ThreadException += new ThreadExceptionEventHandler(FormsThreadExceptionHandler);
+
+
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+
+			try
+			{
+				Application.Run(new Form1());
+			}
+			catch (Exception ex)
+			{
+				SentrySdk.CaptureException(ex);
+				return -1;
+			}
 			return 0;
+		}
+
+		private static void FormsThreadExceptionHandler(object sender, ThreadExceptionEventArgs t)
+		{
+			SentrySdk.CaptureException(t.Exception);
+			MessageBox.Show($"An application error has occurred. \n\nDetails: {t.Exception.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 		}
 
 
