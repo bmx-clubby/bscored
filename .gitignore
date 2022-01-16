@@ -1,0 +1,6 @@
+.vs
+bin
+obj
+packages
+bScored.Installer/Debug
+bScored.Installer/Release

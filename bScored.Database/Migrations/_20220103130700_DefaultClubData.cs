@@ -1,0 +1,136 @@
+﻿using FluentMigrator;
+
+namespace bScoredDatabase.DbMigrations
+{
+	[Migration(20220103130700)]
+	public class _20220103130700_DefaultClubData : Migration
+	{
+		public override void Up()
+		{
+			this.Execute.Sql($@" INSERT INTO OSM_Clubs
+( [Club_Code], [Club], [Group], [State], [Country])
+Values 
+{clubs}
+");
+		}
+
+		public override void Down()
+		{
+
+		}
+
+		const string clubs = @"
+('1-4-34', 'Central Highlands BMX Club', '---', 'QLD', 'AUS' ), 
+('1-4-10', 'Centenary Plains BMX Club', 'CEN', 'QLD', 'AUS' ), 
+('1-2-6', 'Castle Hill BMX Club', 'C''HLL', 'NSW', 'AUS' ), 
+('1-7-21', 'Casey BMX Club', 'CASY', 'VIC', 'AUS' ), 
+('1-4-25', 'Sarina & District BMX Club', 'SAR', 'QLD', 'AUS' ), 
+('1-4-4', 'Beenleigh BMX Club', 'BEEN', 'QLD', 'AUS' ), 
+('1-8-2', 'Cockburn BMX Club', 'CBURN', 'WA', 'AUS' ), 
+('1-2-22', 'Tamworth City BMX Club', 'TAM', 'NSW', 'AUS' ), 
+('1-2-3', 'Blue Mountains BMX Club', 'B''MTS', 'NSW', 'AUS' ), 
+('1-2-5', 'Casino BMX Club', 'CAS', 'NSW', 'AUS' ), 
+('1-2-16', 'Manning Valley BMX Club', 'MANV', 'NSW', 'AUS' ), 
+('1-8-10', 'Margaret River BMX Club', 'MARG', 'WA', 'AUS' ), 
+('1-8-5', 'Eastern Goldfields BMX Club', 'EGLF', 'WA', 'AUS' ), 
+('1-3-1', 'Jingili BMX Club', 'JIN', 'NT', 'AUS' ), 
+('1-7-7', 'Geelong BMX Club', 'GEEL', 'VIC', 'AUS' ), 
+('1-4-9', 'Callide Valley BMX Club', 'CALV', 'QLD', 'AUS' ), 
+('1-4-23', 'Redlands BMX Club', 'RED', 'QLD', 'AUS' ), 
+('1-3-2', 'Nhulunbuy BMX Club', 'NHUL', 'NT', 'AUS' ), 
+('1-4-16', 'Logan City BMX Academy', 'LOGAN', 'QLD', 'AUS' ), 
+('1-7-5', 'Eastfield BMX Club', 'ESTF', 'VIC', 'AUS' ), 
+('1-4-11', 'Cooloola BMX Club', 'COOL', 'QLD', 'AUS' ), 
+('1-8-12', 'Rockingham BMX Club', 'RCK', 'WA', 'AUS' ), 
+('1-4-20', 'Nerang BMX Club', 'NER', 'QLD', 'AUS' ), 
+('1-4-12', 'Harbour City BMX Club', 'H.C', 'QLD', 'AUS' ), 
+('1-8-20', 'East Pilbara BMX Club', 'EPB', 'WA', 'AUS' ), 
+('1-7-8', 'Knox BMX Club', 'KNOX', 'VIC', 'AUS' ), 
+('1-7-3', 'Border BMX Club', 'BDR', 'VIC', 'AUS' ), 
+('1-7-9', 'Lilydale BMX Club', 'LILY', 'VIC', 'AUS' ), 
+('1-8-3', 'Cowaramup BMX Club', 'COW', 'WA', 'AUS' ), 
+('1-8-8', 'Karratha BMX Club', 'KARR', 'WA', 'AUS' ), 
+('1-4-3', 'Bayside BMX Club', 'B.S.', 'QLD', 'AUS' ), 
+('1-2-21', 'Sydney BMX Club', 'SYD', 'NSW', 'AUS' ), 
+('1-2-2', 'Bathurst BMX Club', 'BATH', 'NSW', 'AUS' ), 
+('1-2-15', 'Manly Warringah BMX Club', 'MANW', 'NSW', 'AUS' ), 
+('1-4-8', 'Cairns BMX Club Inc', 'CNS', 'QLD', 'AUS' ), 
+('1-8-17', 'Westside BMX Club', 'W''SD', 'WA', 'AUS' ), 
+('1-7-2', 'Bendigo BMX Club', 'BDGO', 'VIC', 'AUS' ), 
+('1-4-30', 'Walkerston BMX Club', 'WLK', 'QLD', 'AUS' ), 
+('1-2-24', 'Moree BMX Club', '---', 'NSW', 'AUS' ), 
+('1-7-1', 'Ballarat-Sebastopol C C BMX Club', 'BALS', 'VIC', 'AUS' ), 
+('1-7-13', 'Portland BMX Club', 'PORT', 'VIC', 'AUS' ), 
+('1-5-1', 'Blue Lake BMX Club', 'B''LKE', 'SA', 'AUS' ), 
+('1-5-2', 'Cross Keys BMX Club', 'XKYS', 'SA', 'AUS' ), 
+('1-4-13', 'Ipswich West Moreton BMX Club', 'IWM', 'QLD', 'AUS' ), 
+('1-5-6', 'The Copper Coast BMX Club', 'K  ', 'SA', 'AUS' ), 
+('1-2-19', 'Coffs Coast BMX Club', 'COFF', 'NSW', 'AUS' ), 
+('1-4-5', 'Bundaberg BMX Club', 'BUN', 'QLD', 'AUS' ),
+('1-8-16', 'Wanneroo BMX Club', 'WAN', 'WA', 'AUS' ), 
+('1-5-5', 'Tea Tree Gully BMX Club', 'TTG', 'SA', 'AUS' ), 
+('1-7-14', 'Shepparton BMX Club', 'SHEP', 'VIC', 'AUS' ), 
+('1-5-7', 'The Cove BMX Club', 'T.C', 'SA', 'AUS' ), 
+('1-4-29', 'Townsville BMX Club', 'TNV', 'QLD', 'AUS' ), 
+('1-2-20', 'Southlake / Illawarra BMX Club', 'STHL', 'NSW', 'AUS' ), 
+('1-7-17', 'Warrnambool BMX Club', 'W''BOL', 'VIC', 'AUS' ), 
+('1-2-10', 'Lake Macquarie BMX Club', 'L.MQ', 'NSW', 'AUS' ), 
+('1-4-31', 'Weipa BMX Club Inc', 'WEIPA', 'QLD', 'AUS' ), 
+('1-4-24', 'Rockhampton BMX Club', 'RKY', 'QLD', 'AUS' ), 
+('1-7-20', 'Northern BMX Club', 'NT''M', 'VIC', 'AUS' ), 
+('1-4-27', 'Sunshine Coast BMX Club', 'S.C', 'QLD', 'AUS' ), 
+('1-8-1', 'Bunbury BMX Club', 'BNBY', 'WA', 'AUS' ), 
+('1-4-28', 'Toowoomba BMX Club', 'TOO', 'QLD', 'AUS' ), 
+('1-3-5', 'Big Rivers BMX Club', 'BIGR', 'NT', 'AUS' ), 
+('1-3-4', 'Satellite City BMX Club', 'S.C', 'NT', 'AUS' ), 
+('1-8-11', 'Northam BMX Club', 'NT''M', 'WA', 'AUS' ), 
+('1-3-3', 'Red Centre BMX Club', 'R.C', 'NT', 'AUS' ), 
+('1-8-6', 'Hedland BMX Club', 'HED', 'WA', 'AUS' ), 
+('1-7-11', 'Mildura BMX Club', 'MDRA', 'VIC', 'AUS' ), 
+('1-4-19', 'Moranbah BMX Club', 'MORAN', 'QLD', 'AUS' ), 
+('1-5-3', 'Gawler BMX Club', 'GAW', 'SA', 'AUS' ), 
+('1-8-19', 'Byford BMX Club', 'BYFOR', 'WA', 'AUS' ), 
+('1-6-3', 'Wynyard BMX Park', 'WYP', 'TAS', 'AUS' ), 
+('1-8-13', 'Southern Districts BMX Club', 'STHD', 'WA', 'AUS' ), 
+('1-4-22', 'Proserpine BMX Club', 'PROS', 'QLD', 'AUS' ), 
+('1-2-14', 'Maitland Tenambit BMX Club', 'MAIT', 'NSW', 'AUS' ), 
+('1-4-21', 'Pine Rivers BMX Club', 'P.R', 'QLD', 'AUS' ), 
+('1-6-1', 'Launceston BMX Club', 'L''TON', 'TAS', 'AUS' ), 
+('1-4-14', 'Island BMX Club', '---', 'QLD', 'AUS' ), 
+('1-2-7', 'Clarence Valley BMX Club', 'CL VL', 'NSW', 'AUS' ), 
+('1-8-21', 'Collie BMX Club', 'COL', 'WA', 'AUS' ), 
+('1-7-6', 'Frankston BMX Club', 'FKST', 'VIC', 'AUS' ), 
+('1-2-18', 'Penrith BMX Club', 'PEN', 'NSW', 'AUS' ), 
+('1-2-9', 'Hawkesbury Hornets BMX Club', 'HAWKS', 'NSW', 'AUS' ), 
+('1-4-7', 'Caboolture BMX Club', 'CAB', 'QLD', 'AUS' ), 
+('1-2-12', 'LMX Bicycle Supercross', 'LMX', 'NSW', 'AUS' ), 
+('1-8-14', 'Southside BMX Club', 'S''SD', 'WA', 'AUS' ), 
+('1-1-3', 'Tuggeranong BMX Club', 'TUG', 'ACT', 'AUS' ), 
+('1-4-1', 'Ashmore BMX Club', 'ASH', 'QLD', 'AUS' ), 
+('1-8-15', 'Tom Price BMX Club', 'T.P', 'WA', 'AUS' ), 
+('1-8-7', 'Hills BMX Club', 'HLS', 'WA', 'AUS' ), 
+('1-5-4', 'Happy Valley BMX Club', 'H.V', 'SA', 'AUS' ), 
+('1-4-6', 'Burdekin BMX Club', 'BUR', 'QLD', 'AUS' ), 
+('1-7-4', 'BSX (Bicycle Supercross) Inc.', 'BSX', 'VIC', 'AUS' ), 
+('1-8-9', 'Mandurah BMX Club Inc', 'MAND', 'WA', 'AUS' ), 
+('1-2-23', 'Terrigal BMX Club', 'TERR', 'NSW', 'AUS' ), 
+('1-6-2', 'Southern City BMX Club', 'STHCY', 'TAS', 'AUS' ), 
+('1-8-18', 'Woorree Park BMX Club', 'WEE', 'WA', 'AUS' ), 
+('1-1-1', 'Canberra BMX Club', 'CAN', 'ACT', 'AUS' ), 
+('1-2-1', 'Batemans Bay BMX Club', 'BATE', 'NSW', 'AUS' ), 
+('1-2-25', 'San Remo BMX Club', 'SANR', 'NSW', 'AUS' ), 
+('1-2-13', 'Macarthur BMX Club', 'MAC', 'NSW', 'AUS' ), 
+('1-4-32', 'Dysart BMX Club', '---', 'QLD', 'AUS' ), 
+('1-4-26', 'Suncoast Hinterland BMX Club', 'HINT', 'QLD', 'AUS' ), 
+('1-4-18', 'Maryborough BMX Club', 'MRY', 'QLD', 'AUS' ), 
+('1-7-16', 'Sunbury BMX Club', 'SUNB', 'VIC', 'AUS' ), 
+('1-7-19', 'Wyndham Warriors BMX Club', 'WYN', 'VIC', 'AUS' ), 
+('1-7-15', 'South Eastern BMX Club', 'STHE', 'VIC', 'AUS' ), 
+('1-4-17', 'Mackay and District BMX Club Inc', 'M.P', 'QLD', 'AUS' ), 
+('1-7-12', 'Park Orchards BMX Club', 'P.0', 'VIC', 'AUS' ), 
+('1-4-2', 'Atherton BMX Club', 'ATH', 'QLD', 'AUS' ), 
+('1-7-22', 'Bacchus Marsh BMX Club', '---', 'VIC', 'AUS' ), 
+('1-7-23', 'South Gippsland BMX Club', '---', 'VIC', 'AUS' )
+";
+	}
+}
