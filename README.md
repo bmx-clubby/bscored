@@ -21,7 +21,10 @@ We are looking for people to help with documentation and development. Please rea
 
 ## Developer Setup
 
-Running the project locally requires a windows machine and VS 2022 (it may work on other versions).
+Running the project locally requires a windows machine and VS Studio. You will need to setup / installer project extension to be able to load the setup project: https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2022InstallerProjects
+
+
+
 
 [TBD] - more details to follow
 
