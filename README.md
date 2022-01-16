@@ -1,0 +1,2 @@
+# bscored
+BMX Timing Software
