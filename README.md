@@ -1,6 +1,6 @@
 # bscored - BMX Timing Software
 
-bScored is a windows application designed to time BMX events. bScored can be used to create events, register riders, manage categories, create moto draw, time & score events when integrated with a the decoder.
+bScored is a windows application designed to time BMX events. bScored can be used to create events, register riders, manage categories, create moto draw, time & score events when integrated with a decoder.
 
 ### Installation
 
