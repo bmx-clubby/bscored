@@ -73,6 +73,8 @@ namespace WindowsFormsApp7
 			//Database Migrations
 			try
 			{
+				CreateDefaultDabase();
+
 				using (var db = DatabaseConnection.GetConnection())
 				{
 					long? migrateDownToVersion = null;
@@ -129,7 +131,35 @@ namespace WindowsFormsApp7
 			MessageBox.Show($"An application error has occurred. \n\nDetails: {t.Exception.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 		}
 
+		private static string appDataDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+		private static string bScoredDataDir = Path.Combine(appDataDir, "bScored");
+		private static DirectoryInfo dataDirectory = new DirectoryInfo(bScoredDataDir);
+		private static FileInfo DataDirFile(string name) => new FileInfo(Path.Combine(dataDirectory.FullName, name));
 
+		public static void CreateDefaultDabase()
+		{
+			var bScoredDBFile = DataDirFile("bscored.mdf");
+
+			if (!bScoredDBFile.Exists)
+				CreateSqlDatabase(bScoredDBFile);
+		}
+
+		private static void CreateSqlDatabase(FileInfo dbFile)
+		{
+			string databaseName = Path.GetFileNameWithoutExtension(dbFile.Name);
+
+			using (var connection = new System.Data.SqlClient.SqlConnection(
+				"Data Source=(LocalDb)\\MSSQLLocalDB;Integrated Security=true;"))
+			{
+				connection.Open();
+				using (var command = connection.CreateCommand())
+				{
+					command.CommandText =
+						String.Format("CREATE DATABASE {0} ON PRIMARY (NAME={0}, FILENAME='{1}')", databaseName, dbFile);
+					command.ExecuteNonQuery();
+				}
+			}
+		}
 
 	}
 }

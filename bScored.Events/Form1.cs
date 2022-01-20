@@ -1030,6 +1030,8 @@ namespace WindowsFormsApp7
 
 						eventBindingSource.DataSource = DataService.GetEventList();
 						dgvEvents.FirstDisplayedScrollingRowIndex = dgvEvents.RowCount - 1;
+						SelectEvent(eventBindingSource.Current as Event);
+
 					}
 				}
 			}
