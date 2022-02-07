@@ -1,6 +1,7 @@
 ﻿using bScoredDatabase;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,8 @@ namespace bScoredSeries
         [STAThread]
         static void Main()
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory",
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bScored"));
 
             using (var db = DatabaseConnection.GetConnection())
             {

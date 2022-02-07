@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,9 @@ namespace TidyHQMemberImporter
         [STAThread]
         static int Main()
         {
+			AppDomain.CurrentDomain.SetData("DataDirectory",
+					Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bScored"));
+
 			var connectionStringName = "bscored";
 			var connection = ConfigurationManager.ConnectionStrings[connectionStringName];
 

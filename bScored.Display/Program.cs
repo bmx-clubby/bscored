@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -19,6 +20,9 @@ namespace WindowsFormsApp1
         [STAThread]
         static void Main()
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory",
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bScored"));
+
             string assemblyName = Assembly.GetExecutingAssembly().GetName().Name;
             bool createdNew;
 
